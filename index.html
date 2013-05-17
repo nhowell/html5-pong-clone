@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pong</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="stylesheets/normalize.css" rel="stylesheet" />
+    <link href="stylesheets/main.css" rel="stylesheet" />
+    <script src="javascripts/polyfills/requestAnimationFrame.js"></script>
+    <script src="javascripts/Pong.js"></script>
+    <script src="javascripts/Screen.js"></script>
+    <script src="javascripts/Controls.js"></script>
+    <script src="javascripts/Paddle.js"></script>
+    <script src="javascripts/Ball.js"></script>
+    <script src="javascripts/gl-matrix.js"></script>
+    <script>
+      document.ontouchmove = function(e) {
+        e.preventDefault();
+      };
+
+      window.onload = function() {
+        new Pong("pong").start();
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="game">
+        <div id="player1-up" class="touch-control"></div>
+        <div id="player1-down" class="touch-control"></div>
+        <div id="player2-up" class="touch-control"></div>
+        <div id="player2-down" class="touch-control"></div>
+        <canvas id="pong">Sorry, your browser doesn't support canvas.</canvas>
+      </div>
+    </main>
+  </body>
+</html>

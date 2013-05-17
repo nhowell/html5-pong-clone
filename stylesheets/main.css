@@ -1,0 +1,63 @@
+html {
+  font-size: 62.5%; /* base 10 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #eee;
+  font-family: Helvetica, Arial;
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: #444;
+  moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+main {
+  text-align: center;
+  font-size: 0;
+  margin: 0 auto;
+  max-width: 1024px;
+  max-height: 748px;
+}
+
+#game {
+  display: inline-block;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.touch-control {
+  position: absolute;
+  width: 20%;
+  height: 45%;
+}
+
+#player1-up {
+  top: 0;
+  left: 0;
+}
+
+#player1-down {
+  bottom: 0;
+  left: 0;
+}
+
+#player2-up {
+  top: 0;
+  right: 0;
+}
+
+#player2-down {
+  bottom: 0;
+  right: 0;
+}
+
+#pong {
+  border: 0;
+  background-color: #000;
+}
