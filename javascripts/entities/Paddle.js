@@ -1,14 +1,15 @@
 var Paddle = (function () {
 
-  function Paddle(x, y, width, height) {
+  function Paddle(x, y, width, height, color) {
     this.x = x;
     this.y = y;
     this.resetX = x;
     this.resetY = y;
     this.w = width;
     this.h = height;
+    this.color = color;
     this.controls = {up: [], down: [], left: [], right: []};
-    this.speed = 5;
+    this.speed = 7;
     this.score = 0;
   }
 
@@ -78,7 +79,7 @@ var Paddle = (function () {
     },
 
     render: function(screen) {
-      screen.fillStyle("#fff");
+      screen.fillStyle(this.color);
       screen.fillRect(this.x, this.y, this.w, this.h);
     }
 

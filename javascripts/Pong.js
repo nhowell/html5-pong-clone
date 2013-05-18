@@ -13,18 +13,18 @@ var Pong = (function () {
     this.controls = new Controls();
     this.controls.addTouchListeners(["player1-up", "player1-down", "player2-up", "player2-down"]);
 
-    this.player1 = new Paddle(40, y, width, height);
+    this.player1 = new Paddle(40, y, width, height, "#ff1f1f");
     this.player1.setControls({up: ["w", "player1-up"], down: ["s", "player1-down"]}, this.controls);
     this.player1.setBoundry(0, borderHeight, maxWidth / 2 - 1, maxHeight - 1 - borderHeight);
 
-    this.player2 = new Paddle(maxWidth - width - 40, y, width, height);
+    this.player2 = new Paddle(maxWidth - width - 40, y, width, height, "#1f8eff");
     this.player2.setControls({up: ["up", "player2-up"], down: ["down", "player2-down"]}, this.controls);
     this.player2.setBoundry(maxWidth / 2, borderHeight, maxWidth - 1, maxHeight - 1 - borderHeight);
 
     this.ball = new Ball(maxWidth / 2, maxHeight / 2, 10);
     this.ball.setBoundry(0, borderHeight, maxWidth - 1, maxHeight - 1 - borderHeight);
 
-    this.freeze = FPS * 3;
+    this.freeze = FPS * 2;
   }
 
   Pong.prototype = {
@@ -65,25 +65,25 @@ var Pong = (function () {
       // must call to keep loop going
       requestAnimationFrame(this.render.bind(this));
 
-      this.screen.clear();
-
-      this.player1.render(this.screen);
-      this.player2.render(this.screen);
-      this.ball.render(this.screen);
+      this.screen.clear("#262626");
 
       this.renderBorder();
       this.renderDivider();
       this.renderScore();
+
+      this.player1.render(this.screen);
+      this.player2.render(this.screen);
+      this.ball.render(this.screen);
     },
 
     renderBorder: function() {
-      this.screen.fillStyle("#fff");
+      this.screen.fillStyle("#ccc");
       this.screen.fillRect(0, 0, maxWidth, borderHeight);
       this.screen.fillRect(0, maxHeight - borderHeight, maxWidth, borderHeight);
     },
 
     renderDivider: function() {
-      this.screen.fillStyle("#fff");
+      this.screen.fillStyle("#999");
 
       for (var i = 0; i < 15; i++) {
         this.screen.fillRect(maxWidth / 2 - borderHeight / 4, borderHeight * 2 + i * borderHeight * 3.15, borderHeight / 2, borderHeight * 2);
@@ -91,7 +91,7 @@ var Pong = (function () {
     },
 
     renderScore: function() {
-      this.screen.fillStyle("#fff");
+      this.screen.fillStyle("#ccc");
       this.screen.font("bold", "80", "Courier");
 
       this.screen.textAlign("right");

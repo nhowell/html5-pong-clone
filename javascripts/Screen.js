@@ -35,8 +35,9 @@ var Screen = (function () {
       this.canvas.height = height;
     },
 
-    clear: function() {
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    clear: function(color) {
+      this.ctx.fillStyle = color;
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     },
 
     fillStyle: function(style) {
