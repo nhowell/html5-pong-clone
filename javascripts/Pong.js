@@ -7,6 +7,10 @@ var Pong = (function () {
   function Pong(id) {
     this.screen = new Screen(id, maxWidth, maxHeight);
 
+    this.state = new StateMachine();
+
+    this.state.add("game", new GameState());
+
     var width = 15, height = 150;
     var y = maxHeight / 2 - height / 2;
 
