@@ -24,15 +24,18 @@ var Screen = (function () {
       if (window.innerWidth / window.innerHeight > this.aspectRatio) {
         // window is wider than the aspect ratio
         height = Math.min(window.innerHeight, this.maxHeight);
-        width = height * this.aspectRatio;
+        width = Math.round(height * this.aspectRatio);
       } else {
         // window is taller than the aspect ratio
         width = Math.min(window.innerWidth, this.maxWidth);
-        height = width / this.aspectRatio;
+        height = Math.round(width / this.aspectRatio);
       }
 
-      this.canvas.width = width;
-      this.canvas.height = height;
+      // only resize if changed (prevent a redraw on some browsers)
+      if (this.canvas.width !== width || this.canvas.height !== height) {
+        this.canvas.width = width;
+        this.canvas.height = height;
+      }
     },
 
     clear: function(color) {
