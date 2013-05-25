@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>HTML5 Pong Clone</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href="stylesheets/normalize.css" rel="stylesheet" />
     <link href="stylesheets/main.css" rel="stylesheet" />
+    <script src="javascripts/polyfills/window.performance.js"></script>
     <script src="javascripts/polyfills/requestAnimationFrame.js"></script>
     <script src="javascripts/Pong.js"></script>
     <script src="javascripts/StateMachine.js"></script>
@@ -16,10 +18,6 @@
     <script src="javascripts/entities/Ball.js"></script>
     <script src="javascripts/vendor/gl-matrix.js"></script>
     <script>
-      document.ontouchmove = function(e) {
-        e.preventDefault();
-      };
-
       window.onload = function() {
         new Pong("pong").start();
       };

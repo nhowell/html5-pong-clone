@@ -1,3 +1,9 @@
+// disable touch scrolling
+// TODO: find a better place for this
+document.ontouchmove = function(e) {
+  e.preventDefault();
+};
+
 var Controls = (function () {
 
   var validKeys = {
