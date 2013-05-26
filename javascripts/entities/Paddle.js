@@ -9,7 +9,7 @@ var Paddle = (function () {
     this.h = height;
     this.color = color;
     this.controls = {up: [], down: [], left: [], right: []};
-    this.speed = 7;
+    this.speed = 420;
     this.score = 0;
   }
 
@@ -27,7 +27,7 @@ var Paddle = (function () {
       this.boundry = {x1: x1, y1: y1, x2: x2, y2: y2};
     },
 
-    move: function() {
+    move: function(deltaTime) {
       var dx = 0, dy = 0;
 
       for (var dir in this.controls) {
@@ -48,10 +48,10 @@ var Paddle = (function () {
       }
 
       // fix when keyboard "up" plus a touch "up" can make you go double speed
-      dx = (dx > 0) ? this.speed : dx;
-      dx = (dx < 0) ? -this.speed : dx;
-      dy = (dy > 0) ? this.speed : dy;
-      dy = (dy < 0) ? -this.speed : dy
+      dx = (dx > 0) ? this.speed * deltaTime : dx;
+      dx = (dx < 0) ? -this.speed * deltaTime : dx;
+      dy = (dy > 0) ? this.speed * deltaTime : dy;
+      dy = (dy < 0) ? -this.speed * deltaTime : dy
 
       this.x += dx;
       this.y += dy;
@@ -73,8 +73,8 @@ var Paddle = (function () {
       this.y = this.resetY;
     },
 
-    update: function() {
-      this.move();
+    update: function(deltaTime) {
+      this.move(deltaTime);
       if (this.boundry) this.checkBoundry();
     },
 

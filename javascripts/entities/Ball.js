@@ -1,11 +1,10 @@
 var Ball = (function () {
 
-  var speed = 12;
-
   function Ball(x, y, radius) {
     this.position = vec2.fromValues(x, y);
     this.resetPosition = vec2.clone(this.position);
     this.radius = radius;
+    this.speed = 720;
     this.newVelocity(Math.random() > 0.5);
     this.trail = [];
   }
@@ -16,13 +15,15 @@ var Ball = (function () {
       this.boundry = {x1: x1, y1: y1, x2: x2, y2: y2};
     },
 
-    move: function() {
+    move: function(deltaTime) {
       if (this.trail.length >= 10) {
         this.trail.splice(0, 1);
       }
       this.trail.push({x: this.position[0], y: this.position[1]});
 
-      vec2.add(this.position, this.position, this.velocity);
+      var vel = vec2.clone(this.velocity);
+
+      vec2.add(this.position, this.position, vec2.scale(vel, vel, deltaTime));
     },
 
     checkBoundry: function() {
@@ -65,13 +66,13 @@ var Ball = (function () {
 
     // argument is to determine if ball should travel left or right
     newVelocity: function(p2) {
-      this.velocity = vec2.fromValues(speed, Math.random() * 2 - 1);
+      this.velocity = vec2.fromValues(this.speed, Math.random() * 2 - 1);
       // if player 2 scored, send ball at player 1
       if (p2) vec2.negate(this.velocity, this.velocity);
     },
 
-    update: function(paddles) {
-      this.move();
+    update: function(deltaTime, paddles) {
+      this.move(deltaTime);
       if (this.boundry) this.checkBoundry();
 
       for (var i = 0; i < paddles.length; i++) {

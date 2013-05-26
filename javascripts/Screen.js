@@ -39,8 +39,12 @@ var Screen = (function () {
     },
 
     clear: function(color) {
-      this.ctx.fillStyle = color;
-      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      if (color !== undefined) {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      } else {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
     },
 
     fillStyle: function(style) {
@@ -60,7 +64,8 @@ var Screen = (function () {
     },
 
     arc: function(x, y, r, sAngle, eAngle, counterclockwise) {
-      this.ctx.arc(this.transformX(x), this.transformY(y), this.transformX(r), sAngle, eAngle, counterclockwise);
+      this.ctx.arc(this.transformX(x), this.transformY(y), this.transformX(r),
+        sAngle, eAngle, counterclockwise);
     },
 
     fill: function() {

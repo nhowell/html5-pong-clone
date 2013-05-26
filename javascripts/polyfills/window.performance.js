@@ -9,7 +9,6 @@
       var startTime = Date.now();
 
       perf.now = function() {
-        console.log("called");
         return Date.now() - startTime;
       };
     }
