@@ -1,4 +1,6 @@
-var Screen = (function () {
+var Screen = (function() {
+
+  "use strict";
 
   function Screen(id, maxWidth, maxHeight) {
     this.canvas = document.getElementById(id);
@@ -18,7 +20,7 @@ var Screen = (function () {
 
   Screen.prototype = {
 
-    resize: function () {
+    resize: function() {
       var width, height;
 
       if (window.innerWidth / window.innerHeight > this.aspectRatio) {

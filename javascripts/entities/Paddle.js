@@ -1,4 +1,6 @@
-var Paddle = (function () {
+var Paddle = (function() {
+
+  "use strict";
 
   function Paddle(x, y, width, height, color) {
     this.x = x;

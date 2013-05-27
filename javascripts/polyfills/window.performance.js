@@ -1,6 +1,8 @@
 // window.performance polyfill
 (function() {
 
+  "use strict";
+
   if (!window.performance) {
     var perf = window.performance;
 

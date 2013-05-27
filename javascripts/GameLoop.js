@@ -1,4 +1,6 @@
-var GameLoop = (function () {
+var GameLoop = (function() {
+
+  "use strict";
 
   var updateInterval = 1000 / 60; // 60 updates per second target
 
@@ -40,7 +42,7 @@ var GameLoop = (function () {
 
         // setTimeout has a minimum delay time of 4ms per the spec
         // let's keep it that way so we don't have any surprises
-        timeToCall = Math.max(4, updateInterval - (this.getNow() - currTime));
+        var timeToCall = Math.max(4, updateInterval - (this.getNow() - currTime));
 
         this.updateId = window.setTimeout(this.update.bind(this), timeToCall);
       }

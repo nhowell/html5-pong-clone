@@ -1,4 +1,6 @@
-var Ball = (function () {
+var Ball = (function() {
+
+  "use strict";
 
   function Ball(x, y, radius) {
     this.position = vec2.fromValues(x, y);

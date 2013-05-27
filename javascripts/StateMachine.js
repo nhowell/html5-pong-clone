@@ -1,4 +1,6 @@
-var StateMachine = (function () {
+var StateMachine = (function() {
+
+  "use strict";
 
   function StateMachine() {
     this.states = {};

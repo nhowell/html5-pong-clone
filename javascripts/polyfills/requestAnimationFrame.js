@@ -1,6 +1,8 @@
 // requestAnimationFrame polyfill
 (function() {
 
+  "use strict";
+
   var lastTime = 0;
   var vendors = ['moz', 'webkit'];
   for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {

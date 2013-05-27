@@ -4,7 +4,9 @@ document.ontouchmove = function(e) {
   e.preventDefault();
 };
 
-var Controls = (function () {
+var Controls = (function() {
+
+  "use strict";
 
   var validKeys = {
     37: "left",

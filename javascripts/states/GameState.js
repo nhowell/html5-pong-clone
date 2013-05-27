@@ -1,4 +1,6 @@
-var GameState = (function () {
+var GameState = (function() {
+
+  "use strict";
 
   // TODO: Remove the need for this
   var borderHeight = 15;

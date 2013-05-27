@@ -1,4 +1,6 @@
-var Pong = (function () {
+var Pong = (function() {
+
+  "use strict";
 
   var maxWidth = 1024,
     maxHeight = 748;
