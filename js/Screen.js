@@ -2,8 +2,8 @@ var Screen = (function() {
 
   "use strict";
 
-  function Screen(id, maxWidth, maxHeight) {
-    this.canvas = document.getElementById(id);
+  function Screen(canvas, maxWidth, maxHeight) {
+    this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
 
     // only do resizing if max dimensions are provided
@@ -19,6 +19,14 @@ var Screen = (function() {
   }
 
   Screen.prototype = {
+
+    show: function() {
+      this.canvas.style.display = "block";
+    },
+
+    hide: function() {
+      this.canvas.style.display = "none";
+    },
 
     resize: function() {
       var width, height;
@@ -41,11 +49,11 @@ var Screen = (function() {
     },
 
     clear: function(color) {
-      if (color !== undefined) {
+      if (color === undefined) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      } else {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-      } else {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       }
     },
 

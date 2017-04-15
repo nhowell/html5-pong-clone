@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>HTML5 Pong Clone</title>
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link href="stylesheets/normalize.css" rel="stylesheet" />
-    <link href="stylesheets/main.css" rel="stylesheet" />
-    <script src="javascripts/polyfills/window.performance.js"></script>
-    <script src="javascripts/polyfills/requestAnimationFrame.js"></script>
-    <script src="javascripts/Pong.js"></script>
-    <script src="javascripts/GameLoop.js"></script>
-    <script src="javascripts/StateMachine.js"></script>
-    <script src="javascripts/states/GameState.js"></script>
-    <script src="javascripts/Screen.js"></script>
-    <script src="javascripts/Controls.js"></script>
-    <script src="javascripts/entities/Paddle.js"></script>
-    <script src="javascripts/entities/Ball.js"></script>
-    <script src="javascripts/vendor/gl-matrix.js"></script>
-    <script>
-      window.onload = function() {
-        new Pong("pong").start();
-      };
-    </script>
-  </head>
-  <body>
-    <main>
-      <div id="game">
-        <div id="player1-up" class="touch-control"></div>
-        <div id="player1-down" class="touch-control"></div>
-        <div id="player2-up" class="touch-control"></div>
-        <div id="player2-down" class="touch-control"></div>
-        <canvas id="pong">Sorry, your browser doesn't support canvas.</canvas>
-      </div>
-    </main>
-  </body>
-</html>
+<meta charset="utf-8">
+<title>HTML5 Pong</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="icon" type="image/png" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/polyfills/window.performance.js"></script>
+<script src="js/polyfills/requestAnimationFrame.js"></script>
+<script src="js/Pong.js"></script>
+<script src="js/GameLoop.js"></script>
+<script src="js/StateMachine.js"></script>
+<script src="js/states/MenuState.js"></script>
+<script src="js/states/GameState.js"></script>
+<script src="js/Screen.js"></script>
+<script src="js/Controls.js"></script>
+<script src="js/entities/Paddle.js"></script>
+<script src="js/entities/Ball.js"></script>
+<script src="js/vendor/gl-matrix.js"></script>
+
+<main>
+  <noscript>JavaScript must be enabled to play this game.</noscript>
+  <div id="game">
+    <div id="player1-up" class="touch-control"></div>
+    <div id="player1-down" class="touch-control"></div>
+    <div id="player2-up" class="touch-control"></div>
+    <div id="player2-down" class="touch-control"></div>
+    <canvas id="screen">Sorry, your browser doesn't support canvas.</canvas>
+  </div>
+</main>

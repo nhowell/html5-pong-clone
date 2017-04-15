@@ -70,11 +70,11 @@ var GameState = (function() {
     },
 
     onEnter: function() {
-      // nothing yet
+      this.screen.show();
     },
 
     onExit: function() {
-      // nothing yet
+      this.screen.hide();
     },
 
     renderBorder: function() {
