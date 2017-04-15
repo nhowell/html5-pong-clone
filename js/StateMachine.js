@@ -74,7 +74,7 @@ var StateMachine = (function() {
       }
       return false;
     },
-    
+
     top: function() {
       return this.stack[this.stack.length - 1];
     },

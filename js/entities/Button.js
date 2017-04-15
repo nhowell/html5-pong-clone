@@ -17,7 +17,7 @@ var Button = (function() {
     },
 
     update: function(deltaTime) {
-      
+
     },
 
     render: function(screen) {

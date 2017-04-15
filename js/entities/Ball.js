@@ -29,7 +29,7 @@ var Ball = (function() {
     },
 
     checkBoundry: function() {
-      var x = this.position[0], 
+      var x = this.position[0],
           y = this.position[1],
           r = this.radius;
 
@@ -43,12 +43,12 @@ var Ball = (function() {
     },
 
     intersects: function(rect) {
-      var x = this.position[0], 
+      var x = this.position[0],
           y = this.position[1],
           r = this.radius;
 
       return !(rect.x > x + r ||
-        rect.x + rect.w < x - r || 
+        rect.x + rect.w < x - r ||
         rect.y > y + r ||
         rect.y + rect.h < y - r);
     },

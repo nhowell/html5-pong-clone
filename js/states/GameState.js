@@ -24,7 +24,7 @@ var GameState = (function() {
 
     this.ball = new Ball(this.screen.maxWidth / 2, this.screen.maxHeight / 2, 10);
     this.ball.setBoundry(0, borderHeight, this.screen.maxWidth - 1, this.screen.maxHeight - 1 - borderHeight);
-  
+
     // this.freeze = 60 * 2;
   }
 

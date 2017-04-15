@@ -10,7 +10,7 @@
     window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||
       window[vendors[x] + 'CancelRequestAnimationFrame'];
   }
- 
+
   if (!window.requestAnimationFrame)
     window.requestAnimationFrame = function(callback) {
       var currTime = Date.now();
@@ -20,7 +20,7 @@
       lastTime = currTime + timeToCall;
       return id;
     };
- 
+
   if (!window.cancelAnimationFrame)
     window.cancelAnimationFrame = function(id) {
       window.clearTimeout(id);
